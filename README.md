@@ -8,6 +8,39 @@
 
 ---
 
+2026/10/31 LaTeX 版更新
+
+增加了基于 v26.10.18 PDF 的中文 LaTeX 版, 使用 Springer Nature 模板排版, 保留原文和配图.
+
+新增文件主要放在 `latex/` 下:
+- `main.tex`: 编译入口, 设置模板、字体、目录和章节顺序.
+- `Section/`: 按章节拆分的正文, 以及前言、尾声、后记和参考文献.
+- `figures/`: 按章节分文件夹存放的图片 PDF 和同名图注 `.tex` 文件.
+- `sn-jnl.cls`: Springer Nature 模板文件.
+- `build/main.pdf`: 重新编译得到的整本 PDF.
+
+增加了正文中可点击的图片引用和插图目录.
+
+补齐了第十一章漏写的两个图号, 全章按出现顺序编号为 11.1 至 11.17, 同步调整了图片文件名和引用.
+
+后续修改 LaTeX 版, 直接编辑源码即可:
+- 修改正文, 编辑 `latex/Section/` 中对应章节的 `.tex` 文件.
+- 更换图片, 替换 `latex/figures/` 对应章节中的图片 PDF; 修改图注, 编辑同名 `.tex` 文件中的 `\caption`.
+- 正文使用 `\figref{fig:01-1}` 这样的写法引用图片, 对应图注文件中的 `\label{fig:01-1}`. 增删图片时, 同步调整图注文件中的图号、标签和正文引用.
+
+安装带中文支持的 TeX Live 或 MiKTeX 后, 在仓库根目录打开 PowerShell, 执行:
+
+```powershell
+cd latex
+New-Item -ItemType Directory -Path build -Force | Out-Null
+xelatex -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
+xelatex -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
+```
+
+编译两次用于更新目录、图号引用和跳转. 修改后重新编译, 新版 PDF 就在 `latex/build/main.pdf`.
+
+---
+
 2026/10/18 超大型更新（页数突破50）
 
 增加了第一章的插图。

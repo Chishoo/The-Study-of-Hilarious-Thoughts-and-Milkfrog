@@ -1,0 +1,95 @@
+% !TEX program = xelatex
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+\usepackage{amsmath}
+\usepackage[UTF8,fontset=fandol,heading=false]{ctex}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{pdfpages}
+\usepackage{xurl}
+\usepackage[normalem]{ulem}
+
+\geometry{textwidth=160mm,textheight=250mm,top=25mm,bindingoffset=0mm}
+\makeatletter
+% The supplied class adds literal letters to the plain footer.
+\def\ps@plain{%
+  \let\@oddhead\@empty
+  \let\@evenhead\@empty
+  \def\@oddfoot{\hfil\normalfont\thepage\hfil}%
+  \let\@evenfoot\@oddfoot
+}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\captionsetup{font=small,labelfont=bf,labelsep=space,justification=centering,skip=3pt,hypcap=true}
+\DeclareRobustCommand{\figref}[1]{\hyperref[#1]{\textcolor{blue}{图~\ref*{#1}}}}
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}
+  {-6pt plus -2pt minus -1pt}{3pt}{\subsectionfont}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}
+  {-4pt plus -1pt minus -1pt}{2pt}{\subsubsectionfont}}
+\makeatother
+\renewcommand{\contentsname}{目录}
+\renewcommand{\listfigurename}{插图目录}
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{0em}{4em}}
+\makeatother
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{参考奶文献}
+\hypersetup{
+  unicode=true,
+  pdftitle={捧腹大笑思想与奶龙学概论},
+  pdfauthor={Tono\_Hanna, Chishoo, Tachibana\_Sherry},
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  bookmarksopen=false
+}
+\raggedbottom
+\pagestyle{plain}
+
+\begin{document}
+\includepdf[pages=1,pagecommand={\thispagestyle{empty}}]{figures/covers/cover.pdf}
+\pagenumbering{arabic}
+\input{Section/preface}
+\clearpage
+\tableofcontents
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{插图目录}
+\listoffigures
+\clearpage
+\input{Section/chapter01}
+\clearpage
+\input{Section/chapter02}
+\clearpage
+\input{Section/chapter03}
+\clearpage
+\input{Section/chapter04}
+\clearpage
+\input{Section/chapter05}
+\clearpage
+\input{Section/chapter06}
+\clearpage
+\input{Section/chapter07}
+\clearpage
+\input{Section/chapter08}
+\clearpage
+\input{Section/chapter09}
+\clearpage
+\input{Section/chapter10}
+\clearpage
+\input{Section/chapter11}
+\clearpage
+\input{Section/epilogue}
+\clearpage
+\input{Section/afterword}
+\clearpage
+\input{Section/references}
+\clearpage
+\includepdf[pages=1,pagecommand={\thispagestyle{empty}}]{figures/covers/backCover.pdf}
+\end{document}
