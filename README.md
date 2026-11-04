@@ -8,6 +8,53 @@
 
 ---
 
+2026/11/4 LaTeX 版配图更新
+
+补充了六张配图: 有用不, 海边双人大笑, 带小脚的奶蛋, 将军, 奶龙王和跑步奶蛙. 同步更新了图号, 正文引用和插图目录.
+
+新版导出为 `《捧腹大笑思想与奶龙学概论》v26.11.04.pdf`, 共 67 页.
+
+---
+
+2026/11/1 LaTeX 版更新
+
+增加了基于 v26.10.24 PDF 的中文 LaTeX 版, 使用 Springer Nature 模板排版, 保留原文和配图.
+
+补齐了新增角色、高校及奶科学小节的正文、配图和图注.
+
+新增文件主要放在 `latex/` 下:
+
+- `main.tex`: 编译入口, 设置模板、字体、目录和章节顺序.
+- `Section/`: 按章节拆分的正文, 以及前言、尾声、后记和参考文献.
+- `figures/`: 按章节分文件夹存放的图片和图注 `.tex` 文件.
+- `sn-jnl.cls`: Springer Nature 模板文件.
+- `build/main.pdf`: 重新编译得到的整本 PDF.
+
+增加了正文中可点击的图片引用和插图目录.
+
+该版第十一章的图号按出现顺序编号为 11.1 至 11.21.
+
+该版导出文件为 `《捧腹大笑思想与奶龙学概论》v26.11.01.pdf`. 内容依据 v26.10.24 原稿, 文件日期表示导出日期.
+
+后续修改 LaTeX 版, 直接编辑源码即可:
+
+- 修改正文, 编辑 `latex/Section/` 中对应章节的 `.tex` 文件.
+- 更换图片, 替换 `latex/figures/` 对应章节中的图片文件; 修改图注, 编辑对应 `.tex` 文件中的 `\caption` 或 `\caption*`.
+- 正文使用 `\figref{fig:01-1}` 这样的写法引用图片, 对应图注文件中的 `\label{fig:01-1}`. 增删图片时, 同步调整图注文件中的图号、标签和正文引用.
+
+安装带中文支持的 TeX Live 或 MiKTeX 后, 在仓库根目录打开 PowerShell, 执行:
+
+```powershell
+cd latex
+New-Item -ItemType Directory -Path build -Force | Out-Null
+xelatex -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
+xelatex -interaction=nonstopmode -halt-on-error -output-directory=build main.tex
+```
+
+编译两次用于更新目录、图号引用和跳转. 修改后重新编译, 新版 PDF 就在 `latex/build/main.pdf`.
+
+---
+
 2026/10/24 大型更新（页数突破60）
 
 增加了第一章的内容。
