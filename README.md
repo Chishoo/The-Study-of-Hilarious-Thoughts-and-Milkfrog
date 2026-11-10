@@ -4,6 +4,8 @@
 
 2026/11/10晚7点整，《奶概》被B站up主混乱粉笔作为典例配图放在文化杂谈长视频中（视频号BV1NSWu6PE9c，时间位置26:32），《奶概》编写组在此向混乱粉笔对本书的认可表示特别感谢。
 
+特别感谢隔壁的LaTeX版：https://github.com/chengyuZou/The-Study-of-Hilarious-Thoughts-and-Milkfrog
+
 ---
 
 更新日志
